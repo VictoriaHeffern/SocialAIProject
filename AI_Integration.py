@@ -2,23 +2,18 @@ import os
 import time
 from openai import OpenAI
 
-client = OpenAI(api_key="YOUR_KEY_HERE")
+client = OpenAI(api_key='TYPE THE KEY HERE')
 
-# Get file path
-
+# Get file path #########################################################
 def get_memory_database_path():
     desktop = os.path.join(os.path.expanduser("~"), "Desktop")
     memory_db = os.path.join(desktop, "MemoryDatabase")
     return memory_db
 
 
-# Send info to GPT
-
+# Send info to GPT #########################################################
 def load_known_user_info(person_name: str):
-    """
-    Searches Desktop/MemoryDatabase for a file named '<person_name>.txt'
-    and returns its content.
-    """
+    # searches for '<person_name>.txt and returns
 
     memory_db = get_memory_database_path()
     file_path = os.path.join(memory_db, f"{person_name}.txt")
@@ -28,20 +23,16 @@ def load_known_user_info(person_name: str):
             with open(file_path, "r") as f:
                 return f.read().strip()
         except Exception as e:
-            print(f"Error reading known user file: {e}")
+            print(f"Error with known file: {e}")
             return None
     else:
-        print(f"[Warning] No memory file found for {person_name}: {file_path}")
+        print(f"No file found for {person_name}: {file_path}")
         return None
 
 
-# Create unknown
-
+# Create unknown #########################################################
 def create_unknown_user_file():
-    """
-    Creates a new file for an unknown user using a timestamp.
-    Returns path to the file.
-    """
+    # make new file and return
 
     memory_db = get_memory_database_path()
     timestamp = int(time.time())
@@ -55,7 +46,7 @@ def create_unknown_user_file():
             f.write("Likes: \n")
             f.write("Age: \n")
             f.write("Occupation: \n")
-        print(f"Created new user memory file: {file_path}")
+        print(f"Created new memory file: {file_path}")
     except Exception as e:
         print(f"Error creating unknown user file: {e}")
         return None
@@ -63,13 +54,8 @@ def create_unknown_user_file():
     return file_path
 
 
-# Chat
-
+# Chat #########################################################
 def user_interaction_chat(faceKnown: bool, person_name: str = None):
-    """
-    If faceKnown = True, person_name MUST be provided.
-    """
-
     model_name = "gpt-4o-mini"
     memory_file_path = None
 
@@ -78,11 +64,11 @@ def user_interaction_chat(faceKnown: bool, person_name: str = None):
         if not person_name:
             raise ValueError("faceKnown=True requires a person_name.")
 
-        print(f"Face Recognized: Loading profile for {person_name}...")
+        print(f"Face Recognized. Getting profile for {person_name}...")
 
         user_info = load_known_user_info(person_name)
         if not user_info:
-            user_info = "No stored profile information available."
+            user_info = "No stored info available."
 
         system_prompt = (
             "You are a helpful assistant. The user is a known contact, and here is their "
@@ -91,7 +77,7 @@ def user_interaction_chat(faceKnown: bool, person_name: str = None):
             "Keep responses concise and friendly."
         )
 
-    # unknown
+    # unknown 
     else:
         print("Face Not Recognized.")
 
@@ -104,7 +90,7 @@ def user_interaction_chat(faceKnown: bool, person_name: str = None):
             "Do NOT ask for all details at once. Keep the flow natural."
         )
 
-    # prep convo
+    # prep convo 
     conversation_history = [{"role": "system", "content": system_prompt}]
 
     print("-" * 40)
@@ -128,12 +114,12 @@ def user_interaction_chat(faceKnown: bool, person_name: str = None):
         print(f"Error during GPT initialization: {e}")
         return
 
-    # main convo
+    # main convo loop
     while True:
         user_input = input("You: ")
 
         if user_input.lower() == "quit":
-            print("Goodbye! 👋")
+            print("Bye!")
             break
 
         conversation_history.append({"role": "user", "content": user_input})
@@ -171,3 +157,4 @@ if __name__ == "__main__":
 
     # unnknown
     user_interaction_chat(faceKnown=False)
+
