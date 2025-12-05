@@ -4,7 +4,7 @@ import json
 import time
 from openai import OpenAI
 
-client = OpenAI(api_key="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")
+client = OpenAI(api_key="KEYHERE")
 
 def get_memory_database_path():
     desktop = os.path.join(os.path.expanduser("~"), "Desktop")
@@ -66,7 +66,7 @@ def extract_profile_updates(ai_response_json):
 
 class AIConvoModel:
     def __init__(self, face_known=False, person_name=None):
-        self.client = OpenAI(api_key="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")
+        self.client = OpenAI(api_key="KEYHERE")
         self.face_known = face_known
         self.person_name = person_name
         self.memory_file_path = None
@@ -143,4 +143,5 @@ class AIConvoModel:
         except Exception as e:
             print(f"GPT error: {e}")
             return "Sorry, I had trouble processing that."
+
 
