@@ -11,7 +11,7 @@ import time
 import json
 from openai import OpenAI
 
-client = OpenAI(api_key='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')
+client = OpenAI(api_key='ADD IN THE KEY HERE')
 
 # Get file path #########################################################
 def get_memory_database_path():
@@ -223,4 +223,5 @@ def user_interaction_chat(faceKnown: bool, person_name: str = None):
                     print(f"[File renamed → {new_file}]")
 
         except Exception as e:
+
             print(f"GPT error: {e}\n")
