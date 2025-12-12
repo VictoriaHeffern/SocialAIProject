@@ -11,10 +11,10 @@ Requires that you have a folder named "faces" in your working directory. This fo
 
 ### AIConvoModel
 Add a "MemoryDatabase" folder to your desktop. This folder should be populated with text files that are named with the names of users. The formatting of the text file should be:
-Name:
-Hobbies:
-Likes:
-Age:
-Occupation:
+Name:  
+Hobbies:  
+Likes:  
+Age:  
+Occupation:  
 
 ### ClientServer
