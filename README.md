@@ -1,7 +1,5 @@
 # Utilizing Facial Identification to Drive Human Robot Conversation
-Social Robot Project for Social AI and Robotics : RBE595-B25-BX02
-
-Worcester Polytechnic Institute
+Social Robot Project for Social AI and Robotics : RBE595-B25-BX02 at Worcester Polytechnic Institute
 - Robert Gunduz, rgunduz@wpi.edu
 - Victoria Heffern, vjheffern@wpi.edu
 
