@@ -1,7 +1,7 @@
 # Utilizing Facial Identification to Drive Human Robot Conversation
-Worcester Polytechnic Institute
-Robert Gunduz, rgunduz@wpi.edu
-Victoria Heffern, vjheffern@wpi.edu
+Worcester Polytechnic Institute.
+- Robert Gunduz, rgunduz@wpi.edu
+- Victoria Heffern, vjheffern@wpi.edu
 
 Social Robot Project for Social AI and Robotics : RBE595-B25-BX02
 
