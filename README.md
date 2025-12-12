@@ -1,6 +1,6 @@
 # Utilizing Facial Identification to Drive Human Robot Conversation
 
 ## Repository Guide
-- 'Final_NAO' contains the final, complete implementation that we created
+- 'Final_NAO' contains the final, complete implementation that we created.
 - 'FaceIdentifier' was our first case of both detecting and identifying a face. This script was iterated over and incorporated into the final program.
-- 'HaarDetectTest' is the earliest script we created, and contains a rudimentary facial detection method
+- 'HaarDetectTest' is the earliest script we created, and contains a rudimentary facial detection method.
